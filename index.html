@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FKLDL Motor Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
+
+    /* Scroll Down Indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: #ff3333;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    /* Bounce Animation */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-6px); }
+      60% { transform: translateY(4px); }
+    }
+
+    /* Card Hover Effects */
+    .card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(255, 51, 51, 0.4);
+    }
+
+    /* CTA Pulsate */
+    .cta {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ff3333; }
+      50% { box-shadow: 0 0 20px #ff6666; }
+      100% { box-shadow: 0 0 10px #ff3333; }
+    }
+
+    /* Footer Socials */
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+    footer .socials { margin-top: 10px; }
+    footer .socials a { margin: 0 10px; display: inline-block; }
+    footer .socials img { width: 28px; height: 28px; transition: transform 0.3s ease; }
+    footer .socials img:hover { transform: scale(1.2); }
+
+    /* Header with Logo */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+    }
+    header .logo {
+      height: 70px;
+      width: auto;
+    }
+
+    /* Help Overlay */
+    .cart-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+    }
+    .cart-content {
+      background: #fff;
+      width: 90%;
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .close-help {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <img src="images/logo.png" alt="FKLDL Logo" class="logo">
+    <div>
+      <h1>FKLDL Motor Shop</h1>
+      <p>Your trusted partner for motorcycle parts, accessories, and services</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" id="helpBtn">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h2>Welcome to FKLDL Motor Shop</h2>
+      <p>Affordable • Reliable • Trusted</p>
+      <a href="shop.html" class="cta">🛒 Start Shopping</a>
+    </div>
+    <div class="scroll-down">&#x25BC;</div>
+  </section>
+
+  <!-- Categories / Features -->
+  <section class="features">
+    <div class="card">
+      <h3>🛠️ Motorcycle Parts</h3>
+      <p>High-quality and reliable parts to keep your motorcycle running smoothly.</p>
+      <a href="shop.html">Shop Parts</a>
+    </div>
+    <div class="card">
+      <h3>👕 Rider Gear & Apparel</h3>
+      <p>Jackets, sleeves, gloves, and helmets for comfort, protection, and style.</p>
+      <a href="shop.html">Shop Apparel</a>
+    </div>
+    <div class="card">
+      <h3>🔧 Services</h3>
+      <p>Expert maintenance and repair services for all types of motorcycles.</p>
+      <a href="shop.html">View Services</a>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="features">
+    <div class="card">
+      <h3>📞 Contact</h3>
+      <p>Reach us for inquiries, orders, or customer support anytime.</p>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="card">
+      <h3>ℹ️ About</h3>
+      <p>Learn more about FKLDL Motor Shop, our mission, and services.</p>
+      <a href="about.html">Read More</a>
+    </div>
+    <div class="card">
+      <h3>🆘 Help</h3>
+      <p>Need assistance? Visit our help section for FAQs and guides.</p>
+      <a href="#" id="helpBtn2">Get Help</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FKLDL Motor Shop | All Rights Reserved</p>
+    <div class="socials">
+      <a href="https://facebook.com" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+      <a href="https://instagram.com" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+      <a href="https://tiktok.com" target="_blank"><img src="images/tiktok.png" alt="TikTok"></a>
+    </div>
+  </footer>
+
+  <!-- Help Overlay -->
+  <div id="helpOverlay" class="cart-modal">
+    <div class="cart-content">
+      <span class="close-help">&times;</span>
+      <h2>Need Help?</h2>
+      <p>Contact one of our team members:</p>
+      <div id="contact-list"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
